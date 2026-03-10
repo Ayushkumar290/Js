@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 3</title>
+  </head>
+  <body style="background-color: #333; color: #fff">
+    <ul class="languages">
+      <li>Javascript</li>
+    </ul>
+
+    <form id="langForm">
+      <input type="text" id="languageInput" placeholder="Enter language name" />
+      <button id="btn" type="submit">Add Language</button>
+    </form>
+
+    <script>
+        let input = document.querySelector("#languageInput")
+      let form = document.querySelector("#langForm");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        addLang(input.value);
+      });
+      
+
+
+      let btn = document.querySelector("#btn");
+      btn.style.color = "#fff";
+      btn.style.padding = 12;
+      btn.style.backgroundColor = "red";
+
+      let ul = document.querySelector(".languages");
+      
+      function addLang(langName) {
+        let lang = document.createElement("li");
+        lang.innerText = langName;
+        ul.appendChild(lang);
+      }
+
+      
+    </script>
+  </body>
+</html>
