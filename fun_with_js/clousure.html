@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function init() {
+        var name = "Mozilla"; // name is a local variable created by init
+        function displayName() {
+          // displayName() is the inner function, that forms a closure
+          console.log(name); // use variable declared in the parent function
+        }
+        displayName();
+      }
+      init();
+
+      // closure
+
+      function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+          console.log(name);
+        }
+        return displayName;
+      }
+
+      const myFunc = makeFunc();
+      myFunc();
+
+
+      /*
+        A closure is the combination of a function and the lexical environment within which that function was declared.
+        This environment consists of any variables that were in-scope at the time the closure was created. In this case, 
+        myFunc is a reference to the instance of the function displayName that is created when makeFunc is run. 
+        The instance of displayName maintains a reference to its lexical environment, within which the variable name exists. For this reason, 
+        when myFunc is invoked, the variable name remains available for use, and "Mozilla" is passed to console.log.
+      */
+    </script>
+  </body>
+</html>
